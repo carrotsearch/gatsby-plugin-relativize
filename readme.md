@@ -2,7 +2,7 @@
 
 A Gatsby plugin that post-processes the output to remove the dependency on absolute URLs. The post-processed site should work when deployed at any URL prefix.
 
-The plugin is pretty much a fork of [gatsby-plugin-ifps](https://github.com/moxystudio/gatsby-plugin-ipfs). The difference is in how it arrives at the runtime {{pathPrefix}} to use.
+The plugin is pretty much a fork of [gatsby-plugin-ifps](https://github.com/moxystudio/gatsby-plugin-ipfs). The difference is in how it arrives at the runtime `pathPrefix` to use.
 
 ## Installation
 
