@@ -11,7 +11,9 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const TRANSFORM_CONCURRENCY = 10;
 
 const getRelativePrefix = (path) => {
-  const depth = path.split('/').length - 2;
+  // page-data.json is loaded at runtime and taken relatively to the
+  // originating HTML, so we need to decrease depth in this case.
+  const depth = path.split('/').length - 2 - (path.endsWith("page-data.json") ? 1 : 0);
   const relativePrefix = depth > 0 ? '../'.repeat(depth) : './';
 
   return relativePrefix;
