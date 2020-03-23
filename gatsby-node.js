@@ -103,7 +103,8 @@ const injectScriptInHtmlFiles = async () => {
   const paths = await globby(['public/**/*.html']);
   const urls = paths.map(p => {
     return p.replace("public/", "")
-            .replace("/index.html", "");
+            .replace("/index.html", "")
+			.replace("/", "\\/");
   });
 
   const scriptContents = `var re=/\\/(${urls.join("|")})?(\\/[^\/]*)?$/g;
