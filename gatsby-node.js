@@ -104,7 +104,7 @@ const injectScriptInHtmlFiles = async () => {
   const urls = paths.map(p => {
     return p.replace("public/", "")
             .replace("/index.html", "")
-			.replace("/", "\\/");
+            .replace("/", "\\/");
   });
 
   const scriptContents = `var re=/\\/(${urls.join("|")})?(\\/[^\/]*)?$/g;
