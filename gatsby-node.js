@@ -10,6 +10,8 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 const TRANSFORM_CONCURRENCY = 10;
 
+const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&');
+
 const getRelativePrefix = (path) => {
   // page-data.json is loaded at runtime and taken relatively to the
   // originating HTML, so we need to decrease depth in this case.
@@ -102,9 +104,9 @@ const injectScriptInHtmlFiles = async () => {
   // __RELATIVIZE_PREFIX__ variable
   const paths = await globby(['public/**/*.html']);
   const urls = paths.map(p => {
-    return p.replace("public/", "")
-            .replace("/index.html", "")
-            .replace("/", "\\/");
+    return escapeRegExp(p
+            .replace("public/", "")
+            .replace("/index.html", ""));
   });
 
   const scriptContents = `var re=/\\/(${urls.join("|")})?(\\/[^\/]*)?$/g;
