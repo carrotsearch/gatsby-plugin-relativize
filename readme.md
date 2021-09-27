@@ -1,3 +1,7 @@
+This repository is deprecated. The most up-to-date code is now at [@carrotsearch/gatsby-theme-apidocs](https://github.com/carrotsearch/gatsby-theme-apidocs/tree/master/plugins/gatsby-plugin-relativize).
+
+---
+
 # gatsby-plugin-relativize
 
 A Gatsby plugin that post-processes the output to remove the dependency on absolute URLs. The post-processed site should work when deployed at any URL prefix.
